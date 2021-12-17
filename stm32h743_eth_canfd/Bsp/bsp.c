@@ -1,6 +1,7 @@
 #include "bsp.h"
 #include "bsp_gpio.h"
 #include "bsp_eth.h"
+#include "bsp_printf.h"
 #include "bsp_usb.h"
 #include "main.h"
 #include <stdio.h>
@@ -11,6 +12,7 @@ void bsp_init(void)
 {
     gpio_init();
     usb_init();
+    printf_init();
     eth_init();
 
     printf("\r\napp build time: %s, %s\r\n", __DATE__, __TIME__);
@@ -26,6 +28,6 @@ void bsp_loop(void)
 #else
     //user code below
 #endif
-
+    printf_process();
     eth_process();
 }
