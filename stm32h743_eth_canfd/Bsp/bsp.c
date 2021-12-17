@@ -30,4 +30,14 @@ void bsp_loop(void)
 #endif
     printf_process();
     eth_process();
+
+    static uint32_t k = 100000;
+    k = (k == 0) ? 0 : (k-1);
+    if(k%100 == 1) {
+        printf("k=%d\r\n", k);
+        printf("k=%d\r\n", k);
+        printf("k=%d\r\n", k);
+        printf("k=%d\r\n", k);
+        printf("k=%d\r\n", k);
+    }
 }

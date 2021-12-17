@@ -38,26 +38,32 @@ int fputc(int ch, FILE *f)
 //USB2 Full Speed
 //12Mb/s => 1.5MB/s => 1500B/ms
 //1500B circular buffer maybe ok
+//if uart is 2Mbps, don't more than 200B/ms
 
 void printf_init(void)
 {
     ring_buffer_init(&p_r_buf);
 }
 
+char usb_cdc_buffer[RING_BUFFER_SIZE];
+
 void printf_process(void)
 {
     static uint32_t tickstart = 0;
-    static char buffer[RING_BUFFER_SIZE];
     uint16_t num = 0;
 
     if(ring_buffer_is_empty(&p_r_buf)) {
         tickstart = HAL_GetTick();
     } else {
-        if(HAL_GetTick() - tickstart >= 1) {
+        if(HAL_GetTick() - tickstart > 0) {
             tickstart = HAL_GetTick();
             num = ring_buffer_num_items(&p_r_buf);
-            ring_buffer_dequeue_arr(&p_r_buf, buffer, num);
-            CDC_Transmit_FS((uint8_t*)buffer, num);
+            ring_buffer_dequeue_arr(&p_r_buf, usb_cdc_buffer, num);
+            for(uint32_t i = 0; i < 100; i++) {
+                if(CDC_Transmit_FS((uint8_t*)usb_cdc_buffer, num) == 0) {
+                    break;
+                }
+            }
         }
     }
 }
