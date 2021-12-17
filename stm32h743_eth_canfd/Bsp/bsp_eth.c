@@ -7,7 +7,7 @@ void eth_init(void)
     HAL_GPIO_WritePin(ETH_RST_GPIO_Port, ETH_RST_Pin, GPIO_PIN_RESET);
     HAL_Delay(100);
     HAL_GPIO_WritePin(ETH_RST_GPIO_Port, ETH_RST_Pin, GPIO_PIN_SET);
-    HAL_Delay(100);
+    HAL_Delay(10);
     MX_LWIP_Init();
 }
 

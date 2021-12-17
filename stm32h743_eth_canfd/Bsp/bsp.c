@@ -13,10 +13,10 @@ void bsp_init(void)
     usb_init();
     eth_init();
 
-    led1_red_on();
     printf("\r\napp build time: %s, %s\r\n", __DATE__, __TIME__);
     printf("elapsed time  : %.3fs\n", HAL_GetTick()/1000.0);
     printf("stm32h7 init success\r\n");
+    led1_red_on();
 }
 
 void bsp_loop(void)
