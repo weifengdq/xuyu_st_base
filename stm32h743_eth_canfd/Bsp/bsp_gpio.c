@@ -46,6 +46,11 @@ void led1_red_on(void)
     HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, GPIO_PIN_RESET);
 }
 
+void led5_red_on(void)
+{
+    HAL_GPIO_WritePin(LED5_GPIO_Port, LED5_Pin, GPIO_PIN_RESET);
+}
+
 void led2_green_toggle(void)
 {
     HAL_GPIO_TogglePin(LED2_GPIO_Port, LED2_Pin);

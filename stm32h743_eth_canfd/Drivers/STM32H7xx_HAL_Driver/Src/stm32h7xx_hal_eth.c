@@ -2528,7 +2528,11 @@ static void ETH_MACDMAConfig(ETH_HandleTypeDef *heth)
 {
   ETH_MACConfigTypeDef macDefaultConf;
   ETH_DMAConfigTypeDef dmaDefaultConf;
-
+  
+  ETH_MACFilterConfigTypeDef pFilterConfig;
+  HAL_ETH_GetMACFilterConfig(heth, &pFilterConfig);
+  pFilterConfig.PromiscuousMode = ENABLE;
+  HAL_ETH_SetMACFilterConfig(heth, &pFilterConfig);
   /*--------------- ETHERNET MAC registers default Configuration --------------*/
   macDefaultConf.AutomaticPadCRCStrip = ENABLE;
   macDefaultConf.BackOffLimit = ETH_BACKOFFLIMIT_10;
@@ -3025,4 +3029,3 @@ static void ETH_InitCallbacksToDefault(ETH_HandleTypeDef *heth)
 /**
   * @}
   */
-

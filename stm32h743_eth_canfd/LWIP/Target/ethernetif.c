@@ -324,7 +324,7 @@ static void low_level_init(struct netif *netif)
 #endif /* LWIP_ARP || LWIP_ETHERNET */
 
 /* USER CODE BEGIN LOW_LEVEL_INIT */
-
+  netif->flags |= NETIF_FLAG_IGMP;
 /* USER CODE END LOW_LEVEL_INIT */
 }
 

@@ -69,23 +69,23 @@ ARM Macro Assembler    Page 1
 ARM Macro Assembler    Page 2 
 
 
-   44 00002000 00001000 
+   44 00002000 00002000 
                        Heap_Size
-                               EQU              0x1000
+                               EQU              0x2000
    45 00002000         
    46 00002000                 AREA             HEAP, NOINIT, READWRITE, ALIGN=
 3
    47 00000000         __heap_base
    48 00000000         Heap_Mem
                                SPACE            Heap_Size
-   49 00001000         __heap_limit
-   50 00001000         
-   51 00001000                 PRESERVE8
-   52 00001000                 THUMB
-   53 00001000         
-   54 00001000         
-   55 00001000         ; Vector Table Mapped to Address 0 at Reset
-   56 00001000                 AREA             RESET, DATA, READONLY
+   49 00002000         __heap_limit
+   50 00002000         
+   51 00002000                 PRESERVE8
+   52 00002000                 THUMB
+   53 00002000         
+   54 00002000         
+   55 00002000         ; Vector Table Mapped to Address 0 at Reset
+   56 00002000                 AREA             RESET, DATA, READONLY
    57 00000000                 EXPORT           __Vectors
    58 00000000                 EXPORT           __Vectors_End
    59 00000000                 EXPORT           __Vectors_Size
@@ -1274,7 +1274,7 @@ ARM Macro Assembler    Page 20
               00000000 
               00000000 
               00002000 
-              00001000 
+              00002000 
               00000000 
 Command Line: --xref --diag_suppress=9931 --cpu=Cortex-M7.fp.dp --apcs=interwor
 k --depend=stm32h743_eth_canfd\startup_stm32h743xx.d -ostm32h743_eth_canfd\star
@@ -1346,7 +1346,7 @@ Symbol: __heap_base
    Uses
       None
 Comment: __heap_base unused
-__heap_limit 00001000
+__heap_limit 00002000
 
 Symbol: __heap_limit
    Definitions
@@ -2905,7 +2905,7 @@ Comment: __user_initial_stackheap used once
 ARM Macro Assembler    Page 1 Alphabetic symbol ordering
 Absolute symbols
 
-Heap_Size 00001000
+Heap_Size 00002000
 
 Symbol: Heap_Size
    Definitions
