@@ -2528,7 +2528,7 @@ static void ETH_MACDMAConfig(ETH_HandleTypeDef *heth)
 {
   ETH_MACConfigTypeDef macDefaultConf;
   ETH_DMAConfigTypeDef dmaDefaultConf;
-  
+
   ETH_MACFilterConfigTypeDef pFilterConfig;
   HAL_ETH_GetMACFilterConfig(heth, &pFilterConfig);
   pFilterConfig.PromiscuousMode = ENABLE;

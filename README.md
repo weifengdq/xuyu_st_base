@@ -35,7 +35,7 @@ CANFD:
 组播每次Cube生成都要添加
 
 ```bash
-//stm32h7xx_hal_eth.c的 ETH_MACDMAConfig()函数添加
+//stm32h7xx_hal_eth.c的 ETH_MACDMAConfig() 函数添加
   //开启混杂模式, PassAllMulticast保持默认的就可以
   ETH_MACFilterConfigTypeDef pFilterConfig;
   HAL_ETH_GetMACFilterConfig(heth, &pFilterConfig);
@@ -44,7 +44,7 @@ CANFD:
   /*--------------- ETHERNET MAC registers default Configuration --------------*/
 ```
 
-
+如果不分配IP地址或者DHCP获取不到IP地址, 则组播数据发布出来?
 
 
 

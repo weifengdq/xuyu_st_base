@@ -60,6 +60,7 @@ extern ETH_HandleTypeDef heth;
 extern PCD_HandleTypeDef hpcd_USB_OTG_FS;
 extern FDCAN_HandleTypeDef hfdcan1;
 extern FDCAN_HandleTypeDef hfdcan2;
+extern TIM_HandleTypeDef htim6;
 /* USER CODE BEGIN EV */
 
 /* USER CODE END EV */
@@ -228,6 +229,20 @@ void FDCAN2_IT0_IRQHandler(void)
   /* USER CODE BEGIN FDCAN2_IT0_IRQn 1 */
 
   /* USER CODE END FDCAN2_IT0_IRQn 1 */
+}
+
+/**
+  * @brief This function handles TIM6 global interrupt, DAC1_CH1 and DAC1_CH2 underrun error interrupts.
+  */
+void TIM6_DAC_IRQHandler(void)
+{
+  /* USER CODE BEGIN TIM6_DAC_IRQn 0 */
+
+  /* USER CODE END TIM6_DAC_IRQn 0 */
+  HAL_TIM_IRQHandler(&htim6);
+  /* USER CODE BEGIN TIM6_DAC_IRQn 1 */
+
+  /* USER CODE END TIM6_DAC_IRQn 1 */
 }
 
 /**

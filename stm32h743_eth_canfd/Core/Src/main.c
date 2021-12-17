@@ -19,6 +19,7 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "tim.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -80,7 +81,7 @@ int main(void)
   HAL_Init();
 
   /* USER CODE BEGIN Init */
-  HAL_Delay(100);
+  //HAL_Delay(100);
   /* USER CODE END Init */
 
   /* Configure the system clock */
@@ -94,6 +95,7 @@ int main(void)
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
+  MX_TIM6_Init();
   /* USER CODE BEGIN 2 */
   bsp_init();
   /* USER CODE END 2 */
