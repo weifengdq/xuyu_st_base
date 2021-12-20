@@ -10,7 +10,8 @@
 #define MIP2 255
 #define MIP3 255
 #define MIP4 252
-#define MPORT 34567
+#define MPORT 10000
+#define RPORT 20000
 
 #define MULTICAST_RX_BUF 1500
 

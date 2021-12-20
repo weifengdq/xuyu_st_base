@@ -1,6 +1,7 @@
 #include "bsp_can.h"
 #include "main.h"
 #include "fdcan.h"
+#include "bsp_gpio.h"
 
 void can1_config(void)
 {
@@ -108,9 +109,11 @@ void HAL_FDCAN_ErrorStatusCallback(FDCAN_HandleTypeDef *hfdcan, uint32_t ErrorSt
     //__HAL_FDCAN_CLEAR_FLAG(hfdcan, FDCAN_FLAG_BUS_OFF);
     if(hfdcan->Instance == FDCAN1) {
         //fdcan1_busoff_flag = 1;
+        led1_red_on();
         can1_init();
     } else if(hfdcan->Instance == FDCAN2) {
         //fdcan2_busoff_flag = 2;
+        led3_red_on();
         can2_init();
     } else {
 

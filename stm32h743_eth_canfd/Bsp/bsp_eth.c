@@ -49,8 +49,8 @@ void multicast_send(uint8_t *data, uint16_t len)
     struct pbuf *p = pbuf_alloc(PBUF_TRANSPORT, len, PBUF_RAM);
     memcpy(p->payload, data, len);
     p->len = len;
-    multicast_pcb->local_port = (MPORT + 1000) & 0xFFFF;
-    udp_sendto(multicast_pcb, p, &group_addr, MPORT);
+    multicast_pcb->local_port = MPORT;  //(MPORT + 1000) & 0xFFFF;
+    udp_sendto(multicast_pcb, p, &group_addr, RPORT);
     pbuf_free(p);
 }
 

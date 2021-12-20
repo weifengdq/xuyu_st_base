@@ -710,4 +710,3 @@ void ethernet_link_check_state(struct netif *netif)
 /* USER CODE BEGIN 8 */
 
 /* USER CODE END 8 */
-
