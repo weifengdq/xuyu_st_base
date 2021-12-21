@@ -39,7 +39,7 @@ void MX_FDCAN1_Init(void)
 
   /* USER CODE END FDCAN1_Init 1 */
   hfdcan1.Instance = FDCAN1;
-  hfdcan1.Init.FrameFormat = FDCAN_FRAME_FD_NO_BRS;
+  hfdcan1.Init.FrameFormat = FDCAN_FRAME_FD_BRS;
   hfdcan1.Init.Mode = FDCAN_MODE_NORMAL;
   hfdcan1.Init.AutoRetransmission = ENABLE;
   hfdcan1.Init.TransmitPause = ENABLE;
@@ -87,7 +87,7 @@ void MX_FDCAN2_Init(void)
 
   /* USER CODE END FDCAN2_Init 1 */
   hfdcan2.Instance = FDCAN2;
-  hfdcan2.Init.FrameFormat = FDCAN_FRAME_FD_NO_BRS;
+  hfdcan2.Init.FrameFormat = FDCAN_FRAME_FD_BRS;
   hfdcan2.Init.Mode = FDCAN_MODE_NORMAL;
   hfdcan2.Init.AutoRetransmission = ENABLE;
   hfdcan2.Init.TransmitPause = ENABLE;

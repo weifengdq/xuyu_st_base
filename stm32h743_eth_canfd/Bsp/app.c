@@ -75,8 +75,6 @@ void multicast_rx_callback(void *arg, struct udp_pcb *upcb,struct pbuf *p, ip_ad
         uint16_t i;
         FDCAN_TxHeaderTypeDef TxHeader;
 
-        printf("multicast_rx_callback\r\n");
-
         ptr = p->payload;
         len = p->len;
 
